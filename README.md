@@ -1,5 +1,5 @@
 Due to the large file size, only a partial code preview is shown here.  
-If you need the full package, please download the latest release from the [Releases](https://github.com/CGKBAI/CGKB_AI/releases) page.
+If you need the full package, please download the latest release from the [Releases](https://github.com/CGKBAI/CGKB-AI/releases) page.
 
 For data-privacy reasons, the protein sequences are **not** included in this repository.  
 To run the software you must:
