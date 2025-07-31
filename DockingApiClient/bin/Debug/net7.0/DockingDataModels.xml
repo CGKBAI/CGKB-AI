@@ -1,0 +1,1137 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DockingDataModels</name>
+    </assembly>
+    <members>
+        <member name="P:DockingDataModels.Cavity.Id">
+            <summary>
+            The hashed identifier for the protein cavity which is computed with {ProteinId}_{BindingCavity}.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Cavity.ProteinId">
+            <summary>
+            The protein identifier in the format of {ProteinSymbol}_{OrganismSymbol}.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Cavity.BindingSite">
+            <summary>
+            The discriminator for binding site, i.e. the description for the location where a ligand can bind to.
+            Most crystal structures bind no more than one ligand simultaneously.
+            For those simultaneously bind multiple ligands on different cavities, two structures are required.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Cavity.Created">
+            <summary>
+            The date and time when the protein cavity was created.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Cavity.Updated">
+            <summary>
+            The date and time when the protein cavity was last updated.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Cavity.StructureCount">
+            <summary>
+            The snapshot number of structures the protein cavity has.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Cavity.StructureHasBindingLigands">
+            <summary>
+            The snapshot of boolean values indicating if the owned structures have a binding ligand.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Cavity.StructureObtainingMethods">
+            <summary>
+            The snapshot of obtaining methods of the owned structures.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Cavity.Protein">
+            <summary>
+            The protein who owns this cavity.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Cavity.Structures">
+            <summary>
+            The structures of this protein cavity.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Cavity.Results">
+            <summary>
+            A list of computation results for this protein.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.CompProperties.HasActiveChemblCompounds">
+            <summary>
+            A boolean configuration entry indicating if has active ChEMBL experimented compounds.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.CompProperties.HasChemblCompounds">
+            <summary>
+            A boolean configuration entry indicating if has ChEMBL experimented compounds.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.CompProperties.HasTrainedModels">
+            <summary>
+            A boolean configuration entry indicating if has trained machine learning models.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Docking.Id">
+            <summary>
+            Hash computed with ReceptorPdbqtHash|Smiles|Arguments
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Docking.ReceptorPdbqtHash">
+            <summary>
+            The 64-bit hash of the receptor pdbqt file
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Docking.LigandPdbqtHash">
+            <summary>
+            The 64-bit hash of the ligand pdbqt file
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Docking.Smiles">
+            <summary>
+            Ligand smiles
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Docking.ProteinId">
+            <summary>
+            i.e 5HT2A_HUMAN
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Docking.BindingCavity">
+            <summary>
+            i.e orthosteric
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Docking.StructureIndex">
+            <summary>
+            The numeric index of the structure docked towards
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Docking.DockingProgram">
+            <summary>
+            i.e jdock 2.3.3a
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Docking.SearchingSpace">
+            <summary>
+            3.68,0.12,18.98,20,20,20
+            center_x,center_y,center_z,size_x,size_y,size_z
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Docking.Score">
+            <summary>
+            The docking score
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Docking.Created">
+            <summary>
+            The date and time when the score is computed
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Domain.Id">
+            <summary>
+            The mnemonic keyword / identifier of the domain, used in the url.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Domain.Created">
+            <summary>
+            The date and time when the domain was created.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Domain.Updated">
+            <summary>
+            The date and time when the domain was last updated.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Domain.Name">
+            <summary>
+            The display name of the domain.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Domain.Description">
+            <summary>
+            The informatic description of the domain.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Domain.Citation">
+            <summary>
+            The citation section of the domain.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Domain.Keywords">
+            <summary>
+            The keywords of the domain.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Domain.IsPublic">
+            <summary>
+            A boolean value indicating if the domain is available for the public.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Domain.ProteinCount">
+            <summary>
+            The snapshot number of proteins included in the domain.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Domain.DomainProteins">
+            <summary>
+            A list of the proteins included in the domain. Could be empty if the API doesn't make use of it.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Domain.DomainJobs">
+            <summary>
+            A list of jobs that uses this domain. Could be empty if the API doesn't make use of it.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.DomainProtein.DomainId">
+            <summary>
+            The string domain identifier in the relationship.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.DomainProtein.ProteinId">
+            <summary>
+            The numeric protein identifier in the relationship.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.DomainProtein.Domain">
+            <summary>
+            The domain in the relationship.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.DomainProtein.Protein">
+            <summary>
+            The protein in the relationship.
+            </summary>
+        </member>
+        <member name="F:DockingDataModels.StructureObtainingMethod.Unknown">
+            <summary>
+            Unknown method
+            </summary>
+        </member>
+        <member name="F:DockingDataModels.StructureObtainingMethod.ImagingTechnique">
+            <summary>
+            Obtained by imaging technique other than by modeling
+            </summary>
+        </member>
+        <member name="F:DockingDataModels.StructureObtainingMethod.XrayCrystallography">
+            <summary>
+            X-ray Crystallography
+            </summary>
+        </member>
+        <member name="F:DockingDataModels.StructureObtainingMethod.ProteinNMR">
+            <summary>
+            Nuclear Magnetic Resonance Spectroscopy of Proteins
+            </summary>
+        </member>
+        <member name="F:DockingDataModels.StructureObtainingMethod.ElectronCryotomography">
+            <summary>
+            Electron Cryotomography or Cryotomography Electron Microscopy
+            </summary>
+        </member>
+        <member name="F:DockingDataModels.StructureObtainingMethod.HomologyModeling">
+            <summary>
+            Homology Modeling
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.Id">
+            <summary>
+            The numeric identifier of the job.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.Name">
+            <summary>
+            The mnemonic name of the job.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.IsPrivate">
+            <summary>
+            A boolean value indicating if the job is private to the creator only.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.UserId">
+            <summary>
+            The email address of the user who created the job.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.IpAddress">
+            <summary>
+            The IPv4 address of the user.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.Created">
+            <summary>
+            The date and time when the job was created.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.Started">
+            <summary>
+            The date and time when the job was started.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.Updated">
+            <summary>
+            The date and time when the job was last updated.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.Status">
+            <summary>
+            The status of the job.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.DomainCount">
+            <summary>
+            The snapshot number of domains used by this job.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.ProteinCount">
+            <summary>
+            The snapshot number of proteins used by this job.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.LigandCount">
+            <summary>
+            The snapshot number of ligands used by this job.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.ResultCount">
+            <summary>
+            The snapshot number of results used by this job.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.Stage0">
+            <summary>
+            The statistical information of stage 0, i.e. the docking stage.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.Stage1">
+            <summary>
+            The statistical information of stage 1, i.e. the hunting stage.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.Stage2">
+            <summary>
+            The statistical information of stage 2, i.e. the prediction stage.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.AllStages">
+            <summary>
+            The statistical information of all stages.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.User">
+            <summary>
+            The user who created the job. Null if anonymous.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.JobLigands">
+            <summary>
+            A list of ligands used by this job.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.JobDomains">
+            <summary>
+            A list of domains used by this job.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Job.Results">
+            <summary>
+            A list of results for this job.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.JobDomain.JobId">
+            <summary>
+            The numeric job identifier of the domain.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.JobDomain.DomainId">
+            <summary>
+            The string domain identifier of the job.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.JobDomain.Job">
+            <summary>
+            The job in the relationship.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.JobDomain.Domain">
+            <summary>
+            The domain in the relationship.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.JobLigand.JobId">
+            <summary>
+            The numeric job identifier in the relationship.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.JobLigand.LigandId">
+            <summary>
+            The numeric ligand identifier in the relationship.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.JobLigand.LigandName">
+            <summary>
+            The mnemonic ligand name given by the creator.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.JobLigand.Job">
+            <summary>
+            The job in the relationship.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.JobLigand.Ligand">
+            <summary>
+            The ligand in the relationship.
+            </summary>
+        </member>
+        <member name="T:DockingDataModels.Ligand">
+            <summary>
+            The structure to store information about the ligand.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.Id">
+            <summary>
+            The 64bit integral identifier of the ligand. Typically serialized in 16-bit hexadecimal numbers.
+            </summary>
+            <example>564317086151593180</example>
+        </member>
+        <member name="P:DockingDataModels.Ligand.Created">
+            <summary>
+            The date and time when the ligand was created.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.Updated">
+            <summary>
+            The date and time when the ligand was last updated.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.Smiles">
+            <summary>
+            The SMILES depiction of the ligand.
+            </summary>
+            <example>O=C(C)Oc1ccccc1C(=O)O</example>
+        </member>
+        <member name="P:DockingDataModels.Ligand.DepictionSvg">
+            <summary>
+            The 2D molecular depiction in SVG format.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.DepictionSvg3D">
+            <summary>
+            The 3D molecular depiction in SVG format.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.BbbAdaBoostMACCS">
+            <summary>
+            The predicted BBB score using AdaBoost algorithm and MACCS molecular fingerprint.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.BbbAdaBoostPubChem">
+            <summary>
+            The predicted BBB score using AdaBoost algorithm and PubChem molecular fingerprint.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.BbbAdaBoostMolprint2D">
+            <summary>
+            The predicted BBB score using AdaBoost algorithm and Molprint 2D molecular fingerprint.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.BbbAdaboostFP2">
+            <summary>
+            The predicted BBB score using AdaBoost algorithm and DayLight FP2 molecular fingerprint.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.BbbSvmMACCS">
+            <summary>
+            The predicted BBB score using support vector machine (SVM) algorithm and MACCS molecular fingerprint.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.BbbSvmPubChem">
+            <summary>
+            The predicted BBB score using support vector machine (SVM) algorithm and PubChem molecular fingerprint.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.BbbSvmMolprint2D">
+            <summary>
+            The predicted BBB score using support vector machine (SVM) algorithm and Molprint 2D molecular fingerprint.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.BbbSvmFP2">
+            <summary>
+            The predicted BBB score using support vector machine (SVM) algorithm and DayLight FP2 molecular fingerprint.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.FingerprintMACCS">
+            <summary>
+            The MACCS molecular fingerprint of the ligand.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.FingerprintFP2">
+            <summary>
+            The FP2 molecular fingerprint of the ligand.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.FingerprintFP3">
+            <summary>
+            The FP3 molecular fingerprint of the ligand.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.FingerprintFP4">
+            <summary>
+            The FP4 molecular fingerprint of the ligand.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.FingerprintECFP0">
+            <summary>
+            The ECFP0 molecular fingerprint of the ligand.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.FingerprintECFP2">
+            <summary>
+            The ECFP2 molecular fingerprint of the ligand.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.FingerprintECFP4">
+            <summary>
+            The ECFP4 molecular fingerprint of the ligand.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.FingerprintECFP6">
+            <summary>
+            The ECFP6 molecular fingerprint of the ligand.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.FingerprintECFP8">
+            <summary>
+            The ECFP8 molecular fingerprint of the ligand.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.FingerprintECFP10">
+            <summary>
+            The ECFP10 molecular fingerprint of the ligand.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.LigandJobs">
+            <summary>
+            The list of computation jobs that use this ligand. Could be empty if the API doesn't make use of it.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Ligand.Results">
+            <summary>
+            The computation results for this ligand. Could be empty if the API doesn't make use of it.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Prediction.Activity">
+            <summary>
+            The predicted result from the trained machine learning model. Unknown if not computed.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Prediction.ConfidenceLevel">
+            <summary>
+            The confidence level for the machine learning prediction. Null value if not computed.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.SimilarChemblCompound.Id">
+            <summary>
+            The identifier of the compound in the ChEMBL db.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.SimilarChemblCompound.Smiles">
+            <summary>
+            The SMILES of the compound in the ChEMBL db.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.SimilarChemblCompound.Activity">
+            <summary>
+            The bioactivity of the compound toward the target in the ChEMBL db.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.SimilarChemblCompound.Fingerprint">
+            <summary>
+            The computed molecular fingerprint (typically in FP2 type) of the compound in ChEMBL db.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.SimilarChemblCompound.Similarity">
+            <summary>
+            The similarity between this compound and the input compound.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.StageStat.TargetCount">
+            <summary>
+            The total number of stages.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.StageStat.PrecompletedCount">
+            <summary>
+            The number of precompleted stages.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.StageStat.CompletedCount">
+            <summary>
+            The number of completed stages. Precompleted stages are not included.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.StageStat.TimeUsed">
+            <summary>
+            The accrued time used to process the stage.
+            </summary>
+        </member>
+        <member name="T:DockingDataModels.Protein">
+            <summary>
+            A species-specific protein. Homologous protein for different species should be two different <see cref="T:DockingDataModels.Protein"/> objects.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Protein.Id">
+            <summary>
+            The unique identifier of the protein in the format of {ProteinSymbol}_{OrganismSymbol}.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Protein.Created">
+            <summary>
+            The date and time when the protein was created.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Protein.Updated">
+            <summary>
+            The date and time when the protein was last updated.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Protein.ProteinSymbol">
+            <summary>
+            The unique gene name of the protein. e.g. 5HT1B
+            </summary>
+            <remarks>
+            in Properties.txt: [ProteinSymbol]
+            </remarks>
+        </member>
+        <member name="P:DockingDataModels.Protein.OrganismSymbol">
+            <summary>
+            The short species (organism) symbol for the protein species. e.g. CAVPO
+            </summary>
+            <remarks>
+            in Properties.txt: [OrganismSymbol]
+            </remarks>
+        </member>
+        <member name="P:DockingDataModels.Protein.GeneSymbol">
+            <summary>
+            The unique gene name of the protein. e.g. HTR1B
+            </summary>
+            <remarks>
+            in Properties.txt: [Approved symbol]
+            </remarks>
+        </member>
+        <member name="P:DockingDataModels.Protein.ProteinName">
+            <summary>
+            The full name of the protein. e.g. 5-hydroxytryptamine receptor 1B
+            </summary>
+            <remarks>
+            in Properties.txt: [Approved Name]
+            </remarks>
+        </member>
+        <member name="P:DockingDataModels.Protein.Organism">
+            <summary>
+            The species (organism) where the protein originated from. e.g. Cavia porcellus (Guinea pig)
+            </summary>
+            <remarks>
+            in Properties.txt: [Species]
+            </remarks>
+        </member>
+        <member name="P:DockingDataModels.Protein.HasActiveChemblCompounds">
+            <summary>
+            A boolean configuration entry indicating if the protein has active ChEMBL experimented compounds.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Protein.HasChemblCompounds">
+            <summary>
+            A boolean configuration entry indicating if the protein has ChEMBL experimented compounds.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Protein.HasTrainedModels">
+            <summary>
+            A boolean configuration entry indicating if the protein has trained machine learning models.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Protein.StructureCount">
+            <summary>
+            The snapshot number of structures the protein has.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Protein.DomainCount">
+            <summary>
+            The snapshot number of domains this protein included in.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Protein.RawBioactivityCount">
+            <summary>
+            The number of compound bioactivities in Chembl database.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Protein.BioactivityCount">
+            <summary>
+            The number of filtered compound bioactivities in Chembl database.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Protein.Properties">
+            <summary>
+            The properties of the protein.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Protein.ProteinDomains">
+            <summary>
+            A list of domains that contains this protein.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Protein.Cavities">
+            <summary>
+            A list of cavities / binding sites of this protein.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Protein.Tags">
+            <summary>
+            A list of tags of this protein.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.ProteinProperties.ProteinId">
+            <summary>
+            The numeric identifier of the protein.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.ProteinProperties.Synonyms">
+            <summary>
+            The synonyms of the protein.
+            </summary>
+            <remarks>
+            in csv:
+            Synonyms
+            </remarks>
+        </member>
+        <member name="P:DockingDataModels.ProteinProperties.LocusType">
+            <summary>
+            The locus type of the protein.
+            </summary>
+            <remarks>
+            in csv:
+            Locus type
+            </remarks>
+        </member>
+        <member name="P:DockingDataModels.ProteinProperties.ChromosomalLocation">
+            <summary>
+            The chromosomal location of the protein.
+            </summary>
+            <remarks>
+            in csv:
+            Chromosomal location
+            </remarks>
+        </member>
+        <member name="P:DockingDataModels.ProteinProperties.GeneFamily">
+            <summary>
+            The gene family of the protein.
+            </summary>
+            <remarks>
+            in csv:
+            Gene family
+            </remarks>
+        </member>
+        <member name="P:DockingDataModels.ProteinProperties.Hgnc">
+            <summary>
+            The identifier for the HUGO Gene Nomenclature Committee (HGNC).
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.ProteinProperties.UniProt">
+            <summary>
+            The UniProt entry of the protein.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.ProteinProperties.Ensembl">
+            <summary>
+            The Ensembl entry of the protein.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.ProteinProperties.GenBank">
+            <summary>
+            The GenBank entry of the protein.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.ProteinProperties.Ncbi">
+            <summary>
+            The entry for the National Center for Biotechnology Information (NCBI)
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.ProteinProperties.Chembl">
+            <summary>
+            The entry for chemical database of the European Molecular Biology Laboratory (EMBL)
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.ProteinProperties.Protein">
+            <summary>
+            The protein of which the properties are.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Result.JobId">
+            <summary>
+            The numeric identifier of the job the result is computed for.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Result.LigandId">
+            <summary>
+            The numeric identifier of the ligand the result is computed for.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Result.CavityId">
+            <summary>
+            The numeric identifier of the protein cavity the result is computed for.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Result.Created">
+            <summary>
+            The date and time when the result was created.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Result.Updated">
+            <summary>
+            The date and time when the result was last updated.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Result.DockingScoreMetric">
+            <summary>
+            The scoring metric for the docking scores.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Result.DockingScores">
+            <summary>
+            The docking scores for all structures related to the protein. A null value means not computed.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Result.AverageDockingScore">
+            <summary>
+            The average docking score for all structures of the protein. A null value means not computed.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Result.DockedModelHashes">
+            <summary>
+            The docked scores for all structures related to the protein. A null value means not computed.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Result.Prediction">
+            <summary>
+            The predicted result from the trained machine learning model. Unknown if not computed.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Result.MostSimilarActiveCompound">
+            <summary>
+            The most similar active small molecule in known ligands.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Result.MostSimilarCompound">
+            <summary>
+            The most similar small molecule in known ligands.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Result.Job">
+            <summary>
+            The job associated with the result.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Result.Ligand">
+            <summary>
+            The ligand associated with the result.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Result.Cavity">
+            <summary>
+            The protein cavity associated with the result.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Structure.CavityId">
+            <summary>
+            The protein cavity identifier that the structure references.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Structure.Index">
+            <summary>
+            The 0 based structure index.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Structure.Created">
+            <summary>
+            The date and time when the structure was created.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Structure.Updated">
+            <summary>
+            The date and time when the structure was last updated.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Structure.ObtainingMethod">
+            <summary>
+            A enum value indicating the method for structure obtaining.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Structure.HasBindingLigand">
+            <summary>
+            A boolean configuration entry indicating if the structure has a binding ligand.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Structure.Pdb">
+            <summary>
+            A subobject that indicates the PDB id of the structure if available.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Structure.PdbqtHash">
+            <summary>
+            The hash value of the pdbqt file for the structure.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Structure.PdbqtFixedHash">
+            <summary>
+            The hash value of the fixed pdbqt file for the structure.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.Structure.Cavity">
+            <summary>
+            The protein cavity of which the structure is.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.User.Email">
+            <summary>
+            The email address of the user. It's used as the login of the user.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.User.Name">
+            <summary>
+            The name of the user.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.User.Created">
+            <summary>
+            The date and time when the user was created.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.User.Updated">
+            <summary>
+            The date and time when the user was last updated.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.User.Jobs">
+            <summary>
+            A list of job this user created.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.FileObject.Content">
+            <summary>
+            The content of the file.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.FileObject.MimeType">
+            <summary>
+            The MIME type of the file.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.FileObject.FileName">
+            <summary>
+            The name of the file.
+            </summary>
+        </member>
+        <member name="T:DockingDataModels.CreateDomainModel">
+            <summary>
+            The input model for creating a user.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.CreateDomainModel.Id">
+            <summary>
+            The identifier of the domain.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.CreateDomainModel.Name">
+            <summary>
+            The name of the domain.
+            </summary>
+        </member>
+        <member name="T:DockingDataModels.CreateJobModel">
+            <summary>
+            The input model for creating a job.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.CreateJobModel.DomainIds">
+            <summary>
+            The identifiers for target domains that the creating job will use.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.CreateJobModel.JobName">
+            <summary>
+            The mnemonic name for the creating job.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.CreateJobModel.LigandNames">
+            <summary>
+            The name list of the ligands to be docked and predicted against the targets in the specified domains.
+            The number of ligand names must be the same as the number of Smiles.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.CreateJobModel.Smiles">
+            <summary>
+            The list of the ligands in SMILES format to be docked and predicted against the targets in the specified domains.
+            The number of ligand Smiles must be the same as the number of ligand names.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.CreateJobModel.IsPrivate">
+            <summary>
+            A boolean value indicating if the job is private to the creator.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.CreateJobModel.UserId">
+            <summary>
+            The email of the user who is creating this job. Null for anonymous users.
+            </summary>
+        </member>
+        <member name="T:DockingDataModels.CreateLigandModel">
+            <summary>
+            The input model for creating a ligand.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.CreateLigandModel.Smiles">
+            <summary>
+            The SMILES depicting the ligand.
+            </summary>
+        </member>
+        <member name="T:DockingDataModels.CreateUserModel">
+            <summary>
+            The input model for creating a user.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.CreateUserModel.Email">
+            <summary>
+            The email address of the user.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.CreateUserModel.Name">
+            <summary>
+            The full name of the user.
+            </summary>
+        </member>
+        <member name="T:DockingDataModels.RenameJobModel">
+            <summary>
+            The input model for renaming a job.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.RenameJobModel.NewName">
+            <summary>
+            A new mnemonic name for the job
+            </summary>
+        </member>
+        <member name="T:DockingDataModels.UpdateDomainModel">
+            <summary>
+            The input model for updating a domain.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.UpdateDomainModel.Name">
+            <summary>
+            A new name for the domain
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.UpdateDomainModel.Description">
+            <summary>
+            A new description in MarkDown for the domain
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.UpdateDomainModel.Citations">
+            <summary>
+            Some new citations in MarkDown for the domain
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.UpdateDomainModel.Keywords">
+            <summary>
+            Some new keywords for the domain
+            </summary>
+        </member>
+        <member name="T:DockingDataModels.ChemblCompoundsIntegrity">
+            <summary>
+            The integrity information of the chembl compounds
+            [Manually Collated]
+              N/A
+            [Automatically Generated]
+              chembBioactivityTxt, chemblBioactivityCsv, provisionedCompoundsCsv, *fingerprintDb
+            *required for computation
+            #required for visualization
+            %preferred if exists
+            </summary>
+        </member>
+        <member name="T:DockingDataModels.StructureIntegrity">
+            <summary>
+            The integrity information of a structure
+            [Manually Collated]
+              structurePdb, ligandPdb,
+              #structureMol2, #pocketMol2, #renderingPng
+            [Automatically Generated]
+              propertiesTxt, fixedStructurePdb, *structurePdbqt, %fixedStructurePdbqt,
+              ligandPdbqt, %ligandPka, *pocketConf
+            *required for computation
+            #required for visualization
+            %preferred if exists
+            </summary>
+        </member>
+        <member name="T:DockingDataModels.TrainedModelsIntegrity">
+            <summary>
+            The integrity information of the trained models
+            [Manually Collated]
+              N/A
+            [Automatically Generated]
+              HasScoreSummary, *HasTrainedModelLR, HasTrainedModelMLP, *HasTrainedModelRF, *HasTrainedModelSVM
+            *required for computation
+            #required for visualization
+            %preferred if exists
+            </summary>
+        </member>
+        <member name="T:DockingDataModels.ProblemDetails">
+            <summary>
+            A machine-readable format for specifying errors in HTTP API responses based on <see href="https://tools.ietf.org/html/rfc7807"/>.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.ProblemDetails.Type">
+            <summary>
+            A URI reference [RFC3986] that identifies the problem type. This specification encourages that, when
+            dereferenced, it provide human-readable documentation for the problem type
+            (e.g., using HTML [W3C.REC-html5-20141028]). When this member is not present, its value is assumed to be
+            "about:blank".
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.ProblemDetails.Title">
+            <summary>
+            A short, human-readable summary of the problem type. It SHOULD NOT change from occurrence to occurrence
+            of the problem, except for purposes of localization(e.g., using proactive content negotiation;
+            see[RFC7231], Section 3.4).
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.ProblemDetails.Status">
+            <summary>
+            The HTTP status code([RFC7231], Section 6) generated by the origin server for this occurrence of the problem.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.ProblemDetails.Detail">
+            <summary>
+            A human-readable explanation specific to this occurrence of the problem.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.ProblemDetails.Instance">
+            <summary>
+            A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced.
+            </summary>
+        </member>
+        <member name="P:DockingDataModels.ProblemDetails.Extensions">
+            <summary>
+            Gets the <see cref="T:System.Collections.Generic.IDictionary`2"/> for extension members.
+            <para>
+            Problem type definitions MAY extend the problem details object with additional members. Extension members appear in the same namespace as
+            other members of a problem type.
+            </para>
+            </summary>
+            <remarks>
+            The round-tripping behavior for <see cref="P:DockingDataModels.ProblemDetails.Extensions"/> is determined by the implementation of the Input \ Output formatters.
+            In particular, complex types or collection types may not round-trip to the original type when using the built-in JSON or XML formatters.
+            </remarks>
+        </member>
+    </members>
+</doc>
