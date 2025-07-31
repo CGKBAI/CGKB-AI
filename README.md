@@ -29,9 +29,11 @@ Open a command prompt or PowerShell (run as administrator).
 Use the Winget package manager to install Node.js
 
 ### 6. Start the API
+Open the project in Visual Studio.
 * In **Solution Explorer** → right-click **DockingApiService** → **Set as StartUp Project** → **F5**
 
 ### 7. Launch the web app
+Open the project in Visual Studio.
 * Stop debugging  
 * Right-click **GenericComputationPlatform** → **Set as StartUp Project** → **F5**
 
