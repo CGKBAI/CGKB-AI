@@ -38,9 +38,9 @@ Select Set as StartUp Project, then start the application to launch the backend.
 ### 7. Launch the web app
 Open the project in Visual Studio.
 In the Solution Explorer, right-click the GenericComputationPlatform project.
-Select Set as StartUp Project, then start the application. The website will now be accessible.
+Select Set as StartUp Project, then start the application. The website will now be accessible.Enjoy! 🎉
 
-If you need the full package, please download the latest release from the [Releases](https://github.com/CGKBAI/CGKB-AI/releases) page.
+If you need the package, please download the latest release from the [Releases](https://github.com/CGKBAI/CGKB-AI/releases) page.
 
 For data-privacy reasons, the protein sequences are **not** included in this repository.  
 To run the software you must:
@@ -52,5 +52,4 @@ Once both steps are complete, the program will be ready to use.
 
 For questions or collaboration, feel free to contact  
 [fengzhiwei@suat-sz.edu.cn](mailto:fengzhiwei@suat-sz.edu.cn).
-Enjoy! 🎉
 ```
