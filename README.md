@@ -30,12 +30,13 @@ Use the Winget package manager to install Node.js
 
 ### 6. Start the API
 Open the project in Visual Studio.
-* In **Solution Explorer** → right-click **DockingApiService** → **Set as StartUp Project** → **F5**
+In the Solution Explorer, right-click the DockingApiService project.
+Select Set as StartUp Project, then start the application to launch the backend.
 
 ### 7. Launch the web app
 Open the project in Visual Studio.
-* Stop debugging  
-* Right-click **GenericComputationPlatform** → **Set as StartUp Project** → **F5**
+In the Solution Explorer, right-click the GenericComputationPlatform project.
+Select Set as StartUp Project, then start the application. The website will now be accessible.
 
 If you need the full package, please download the latest release from the [Releases](https://github.com/CGKBAI/CGKB-AI/releases) page.
 
