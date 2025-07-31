@@ -1,6 +1,6 @@
 CGKB-AI
 =====
-To power up the platform you’ll need to configure the runtime stack below. Follow the steps once and you’re ready to crunch data, train models, or serve predictions from your own machine.
+To power up the platform you’ll need to configure the runtime stack below. Follow the steps once and you’re ready to serve from your own machine.
 ### 1. Install Visual Studio 2022 Enterprise
 Navigate to the official Visual Studio release history page:
 ```powershell
