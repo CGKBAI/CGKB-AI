@@ -1,0 +1,78 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\git2\\Git\\GenericComputationPlatform\\CommonTools\\CommonTools.csproj": {}
+  },
+  "projects": {
+    "D:\\git2\\Git\\GenericComputationPlatform\\CommonTools\\CommonTools.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\git2\\Git\\GenericComputationPlatform\\CommonTools\\CommonTools.csproj",
+        "projectName": "CommonTools",
+        "projectPath": "D:\\git2\\Git\\GenericComputationPlatform\\CommonTools\\CommonTools.csproj",
+        "packagesPath": "C:\\Users\\xxy\\.nuget\\packages\\",
+        "outputPath": "D:\\git2\\Git\\GenericComputationPlatform\\CommonTools\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\xxy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://mirrors.tuna.tsinghua.edu.cn/nuget/": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "DocumentFormat.OpenXml": {
+              "target": "Package",
+              "version": "[2.20.0, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.309\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
