@@ -1,13 +1,43 @@
-Due to the large file size, only a partial code preview is shown here.  
-If you need the full package, please download the latest release from the [Releases](https://github.com/CGKBAI/CGKB-AI/releases) page.
+```markdown
+# 🚀 Quick-Start Guide
 
-For data-privacy reasons, the protein sequences are **not** included in this repository.  
-To run the software you must:
+> Copy-paste the steps below to get **JDock** running in minutes.
 
-1. Create your own database named `Computation.db`.  
-2. Place the complete dataset under the `Workspace/` directory.
+---
 
-Once both steps are complete, the program will be ready to use.
+### 1. Visual Studio 2022 Enterprise
+```powershell
+winget install Microsoft.VisualStudio.2022.Enterprise
+# select workloads: .NET desktop, Desktop development with C++
+```
 
-For questions or collaboration, feel free to contact  
-[fengzhiwei@suat-sz.edu.cn](mailto:fengzhiwei@suat-sz.edu.cn).
+### 2. Open Babel 2.4.0  
+Download and install from  
+[http://openbabel.org/wiki/Category:Releases](http://openbabel.org/wiki/Category:Releases)
+
+### 3. Clone the repo
+```bash
+git clone https://github.com/stcmz/jdock.git
+cd jdock
+```
+
+### 4. Python 3.11.9
+```powershell
+winget install Python.Python.3.11 --version 3.11.9
+pip install scikit-learn numpy pandas
+```
+
+### 5. Node.js LTS via Winget
+```powershell
+winget install OpenJS.NodeJS.LTS
+```
+
+### 6. Start the API
+* In **Solution Explorer** → right-click **DockingApiService** → **Set as StartUp Project** → **F5**
+
+### 7. Launch the web app
+* Stop debugging  
+* Right-click **GenericComputationPlatform** → **Set as StartUp Project** → **F5**
+
+Enjoy! 🎉
+```
