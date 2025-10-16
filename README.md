@@ -1,44 +1,124 @@
-CGKB-AI
+Procedure
 =====
 To power up the platform you’ll need to configure the runtime stack below. Follow the steps once and you’re ready to serve from your own machine.
-### 1. Install Visual Studio 2022 Enterprise
-Navigate to the official Visual Studio release history page:
+### 1.Setting Up the MCCS Toolchain
+#### Download and Install Docker
+
+To install Docker, follow the official instructions available at (https://docs.docker.com/get-started/get-docker/).
+
+*On Windows, additional setup may be required, including enabling Hyper-V and WSL2. If WSL is already installed, upgrade it using the following command in the command line or PowerShell:
 ```powershell
-https://learn.microsoft.com/en-us/visualstudio/releases/2022/release-history#release-dates-and-build-numbers
+wsl --set-version distro_name 2
 ```
-Download the installer for the Enterprise edition and follow the on-screen prompts to complete the installation.
+To check the current version and distribution name, use:
+```powershell
+wsl -l -v
+```
+*A system restart may be necessary before using Docker.
 
-### 2. Install Open Babel 2.4.0  
-Visit the official Open Babel website.
-Locate and download the version released on September 21, 2016 (Open Babel 2.4.0), then run the installer to install it.
+*On Windows/macOS, launch Docker Desktop after installation.
+Timing 1 min - 3 min
+#### Obtain the MCCS Toolchain
+*On Windows    
+>*Open PowerShell or Command Prompt via the Start menu or by using the Win+R hotkey.
+>*In the command line window, run:
+  ```powershell
+docker pull stcmz/mccs
+```
+*On macOS
+>*Open Terminal via Spotlight Search or the Applications folder.
+>*In the command line window, run:
+ ```powershell
+docker pull stcmz/mccs
+```
+Timing 10 sec 
+#### Launch the MCCS Container
+*On Windows
+>*Navigate to the folder containing your data (PDB files, download lists, etc.).
+>*Open PowerShell or Command Prompt in the folder by holding Shift, right-clicking, and selecting “Open PowerShell window here” or “Open command line here”.
+>*Run the following command to start the MCCS container:
+ ```powershell
+docker run --rm -it -v "$(pwd):/data" stcmz/mccs
+```
+>*You should now be successfully switched into the MCCS container.
+*On macOS
+>*Open Terminal.
+>*Navigate to the folder containing your data using the cd command.
+>*Run the following command to start the MCCS container:
+ ```powershell
+docker run --rm -it -v "$(pwd):/data" stcmz/mccs
+```
+>*You should now be successfully switched into the MCCS container.
+Timing 5 sec 
+### 2.Preparing the Download Lists
+To prepare download lists for protein structures and sequences, follow these steps: First, create a plain text file for each download list. You can have multiple lists for different sets of data. Entries from both PDB (Protein Data Bank) and UniProt databases should be separated by line breaks or white spaces within each list. To organize downloads, add labels by naming them at the beginning of a line followed by a single colon. Each label applies to all entries on that line, allowing multiple lines to share the same label for organizing PDB files into specific folders. For example, in a file like Pain_relieving.txt：
 
-### 3. Install jdock (Latest Version)
-Go to the GitHub repository: stcmz/jdock.
-Download the latest release and follow the repository’s installation instructions to set it up.
+5HT1B: P28222
 
-### 4. Python 3.11.9
-Visit the official Python website and download the 3.11.9 version installer.
-Run the installer, ensuring to check "Add Python to PATH" during setup for environment configuration.
-After installation, open a command prompt or terminal and install the necessary libraries using pip:
+5HT2A: 6A93 6A94
+
+5HT2B: P41595 4IB4 4NC3 5TVN 6DRX 6DRY 6DRZ 6DS0
+Timing 3 d– 7 d
+
+The entry "5HT1B: P28222" assigns the label 5HT1B to the UniProt entry P28222, while "5HT2A: 6A93 6A94" groups the PDB entries 6A93 and 6A94 under the label 5HT2A. Similarly, "5HT2B: P41595 4IB4 4NC3 5TVN 6DRX 6DRY 6DRZ 6DS0" organizes multiple PDB and UniProt entries under 5HT2B. 
+
+CRITICAL STEP If you collect entries in an Excel worksheet, use the protein name as a label and copy the corresponding PDB entries into the text file list. This structured approach ensures efficient management and retrieval of protein data for research and analysis.
+### 3.Downloading and Splitting PDB Files
+To download and organize PDB files efficiently, run the following command from MCCS toolchain to download all PDB files:
+ ```powershell
+pdbget -s -l Pain_relieving.txt -o Pain_relieving
+```
+Timing 5 min – 10 min
+
+!CAUTION If an error occurs during downloading, you can restart by running the same command, and the tool will automatically skip already downloaded files while retrieving only the missing ones.
+### 4. Further Cleaning
+This step serves as an additional validation of the data. During this process, redundant PDB files should be deleted, keeping only the PDB files related to the target protein and small molecules (if applicable). Low-quality structures should also be removed to prevent any negative impact on docking calculations. It is essential to maintain the folder structure and ensure that no more than three to four PDB entries are retained for the same protein. The cleaned files should be properly named, with protein files saved as AminoAcids.pdb and small molecule files as Ligand.pdb.
+!CAUTION When parsing PDB files, extra information such as ions, water molecules, and lipids may be included along with the protein target and small molecules. Since these components are unnecessary for subsequent calculations, manually reviewing and removing irrelevant files ensures data accuracy.
 bash
-pip install scikit-learn numpy pandas  
-```powershell
-pip install scikit-learn numpy pandas  
+Timing 30 min – 60 min 
+
+### 5.Generating Pocket Files and Pocket Images
+In this step, you need to identify binding pockets within each protein and generate an MOL2-format pocket placeholder using Sybyl or other software. These pocket placeholders typically consist of a cluster of carbon atoms representing the binding pocket within the protein. The generated MOL2 file should be named Pocket.mol2. For specific Sybyl operations, refer to relevant manuals. Next, open the protein structure and pocket placeholder in PyMOL, adjust rotation and zoom to obtain an optimal view, and configure the color scheme in a single command run:
+ ```powershell
+load Pocket.mol2; zoom; show surface, Pocket; set antialias, 2; spectrum; spectrum count, magenta_magenta, Pocket;
 ```
+Timing 10 sec 
+This command loads the pocket placeholder, adjusts the view, displays the pocket surface, sets anti-aliasing to level 2, applies a color spectrum to the protein, and ensures the pocket is displayed in magenta. Then, manually adjust the perspective by zooming and rotating for a suitable view. Finally, render and save the image in PNG format with a resolution of 3000x3000 using the following command:
+ ```powershell
+ray 3000,3000; png .\Rendering.png
+```
+Timing 50 sec 
+This step ensures high-quality visualization of the binding pocket, where the protein appears in a rainbow color scheme and the pocket placeholder in magenta.
+### 6.Preparing Receptor and Ligand Using Scripts from MCCS Toolchain Preparation of the receptor(s)
+Use the sidechain fixing script for UCSF Chimera to scan and fix the receptors. Run the script below at a command line.
+ ```powershell
+chimera --nogui --script incompleteSideChains.py receptor.pdb
+```
+Timing 5 sec – 3 min, average 10 sec
+CRITICAL STEP The script reads in the molecule and replaces each truncated residue with a complete one in the same kind using the Dunbrack rotamer library. The script always saves the fixed structure in the file named “fixed.pdb”. Rename it to a more meaningful one once succeeded. The script is single-threaded and therefore multiple receptors can be fixed simultaneously on a multi-core CPU to boost the overall speed.
 
-### 5. Install Node.js
-Open a command prompt or PowerShell (run as administrator).
-Use the Winget package manager to install Node.js
+!CAUTION The script does not always result in a valid structure. Due to the low resolution of 3D structure or scanning error in crystallography, the resulting structures may sometimes have steric clashes for the missing sidechains. In such cases, with the original atom coordinates being honored, the script unavoidably generates a fixed structure with overlapped sidechains. Use molecular modeling software to refine the problematic sidechains or simply skip the fixing, otherwise the following steps may fail. Then, use VEGA to convert the receptor PDB into a PDBQT. (http://autodock.scripps.edu/faqs-help/faq/what-is-the-format-of-a-pdbqt-file). Run the script below at a command line.
+ ```powershell
+vega receptor.pdb -o receptor.pdbqt -f VINA -c Gasteiger -p VINA -l GEN -r APOLAR -w
+```
+Timing < 2 sec
+The script emits the receptor structure in the Vina PDBQT format after applying the Gasteiger charge template (the -c argument) and the Vina force field (the -p argument), adding hydrogens as in generic organic molecule (the -l argument), and removing apolar hydrogens (the -r argument) and water molecules (the -w argument).
+#### Preparation of the ligand(s)
+Use VEGA to convert the ligand PDB into a PDBQT. (http://autodock.scripps.edu/faqs-help/faq/what-is-the-format-of-a-pdbqt-file). Run the script below at a command line.
+```powershell
+vega ligand.pdb -o ligand.pdbqt -f VINA -c Gasteiger -p VINA -l GEN -r APOLAR -j FLEX -w
+```
+Timing 1 sec
+The script emits the ligand structure in the Vina PDBQT format after defining the flexible torsions (the -w argument), applying the Gasteiger charge template (the -c argument) and the Vina force field (the -p argument), adding hydrogens as in generic organic molecule (the -l argument), and removing apolar hydrogens (the -r argument) and water molecules (the -w argument). Then, use PROPKA to predict the pKa values for the input ligand. Run the script below at a command line.
+```powershell
+propka3 ligand.pdb
+```
+Timing 1 sec 
+PROPKA is a Python based script. It accepts PDB and PDBQT formats and the output is a file describing the predicted pKa values. The file is named after the input PDB but with a “.pka” extension.
+CRITICAL STEP In essence, pKa values of ionizable groups always affect their charges, determining the accuracy of docking poses of ligand.  So, the calculation of pKa values is important.
+### 7.Generating the Workload Using in-house Scripts
+To prepare the workload for the GenCompPlat platform, several scripts are executed in sequence. The WF0_FetchProteinData script downloads metadata for each protein and its structure, generating the corresponding layout. The WF1_DownloadChemblBioactivityData script retrieves ChEMBL bioactivity data and formats the output into a specific layout. Next, the WF2_ProcessChemblActivityData script extracts bioactivity data for each protein from the ChEMBL database and structures the output in a predefined format. The WF3_ProvisionCompoundsForDocking script processes bioactivity data by converting it into a simple active/inactive classification and generating the corresponding layout. The WF4_BuildFingerprintDatabase script calculates molecular fingerprints (FP2) for ligands in the bioactivity database and stores them in a global fingerprint database. The WF5_PrecomputeFingerprints script then collects molecular fingerprints (FP2) from the global database for ligands in the bioactivity dataset and generates the final layout. Finally, use the following script (prepared_GCP.sh) to generate additional data for GenCompPlat:
 
-### 6. Start the API
-Open the project in Visual Studio.
-In the Solution Explorer, right-click the DockingApiService project.
-Select Set as StartUp Project, then start the application to launch the backend.
-
-### 7. Launch the web app
-Open the project in Visual Studio.
-In the Solution Explorer, right-click the GenericComputationPlatform project.
-Select Set as StartUp Project, then start the application. The website will now be accessible.Enjoy! 🎉
 
 If you need the package, please download the latest release from the [Releases](https://github.com/CGKBAI/CGKB-AI/releases) page.
 
