@@ -158,6 +158,7 @@ This command installs all project dependencies based on package-lock.json. Refre
 Next, set “DockingApiService” as the startup project by right-clicking it in Solution Explorer, selecting “Set as StartUp Project”, and launching it in non-debug mode by navigating to “Debug > Start Without Debugging”, which starts the backend service. Similarly, set “GenericComputationPlatform” as the startup project by right-clicking it in Solution Explorer, selecting “Set as StartUp Project”, and launching it in non-debug mode via “Debug > Start Without Debugging”, which starts the frontend application.
 
 Timing 5 min- 10 min
+
 If you need the package, please download the latest release from the [Releases](https://github.com/CGKBAI/CGKB-AI/releases) page.
 
 For data-privacy reasons, the protein sequences are **not** included in this repository.  
