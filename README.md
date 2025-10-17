@@ -115,11 +115,36 @@ propka3 ligand.pdb
 ```
 Timing 1 sec 
 PROPKA is a Python based script. It accepts PDB and PDBQT formats and the output is a file describing the predicted pKa values. The file is named after the input PDB but with a “.pka” extension.
-CRITICAL STEP In essence, pKa values of ionizable groups always affect their charges, determining the accuracy of docking poses of ligand.  So, the calculation of pKa values is important.
 ### 7.Generating the Workload Using in-house Scripts
 To prepare the workload for the GenCompPlat platform, several scripts are executed in sequence. The WF0_FetchProteinData script downloads metadata for each protein and its structure, generating the corresponding layout. The WF1_DownloadChemblBioactivityData script retrieves ChEMBL bioactivity data and formats the output into a specific layout. Next, the WF2_ProcessChemblActivityData script extracts bioactivity data for each protein from the ChEMBL database and structures the output in a predefined format. The WF3_ProvisionCompoundsForDocking script processes bioactivity data by converting it into a simple active/inactive classification and generating the corresponding layout. The WF4_BuildFingerprintDatabase script calculates molecular fingerprints (FP2) for ligands in the bioactivity database and stores them in a global fingerprint database. The WF5_PrecomputeFingerprints script then collects molecular fingerprints (FP2) from the global database for ligands in the bioactivity dataset and generates the final layout. Finally, use the following script (prepared_GCP.sh) to generate additional data for GenCompPlat:
-
-
+```powershell
+for i in */*/*; do 
+    cd $i || continue
+    chimera --nogui --script ~/incompleteSideChains.py AminoAcids.pdb
+    mv fixed.pdb AminoAcids_fixed.pdb
+    propka3 Ligand.pdb
+    vega Ligand.pdb -o Ligand.pdbqt -f VINA -c Gasteiger -p VINA -l GEN -r APOLAR -w -j FLEX
+    vega AminoAcids_fixed.pdb -o AminoAcids_fixed.pdbqt -f VINA -c Gasteiger -p VINA -l GEN -r APOLAR -w
+    obabel AminoAcids.pdb -O AminoAcids.mol2
+    pdbm -CL -l15 Pocket.mol2 > Pocket.conf
+    cd -
+done
+pdbqtf $(grep --include=*.pdbqt -rl '?') -a 
+```
+Timing 1 min- 3 min
+This script automates the processing of protein and ligand structures, ensuring proper formatting for docking and analysis on the GenCompPlat platform. 
+### 8.Compiling and Deploying the Platform
+To compile and deploy the database platform, first, open Visual Studio and build the solution by opening CytoscapeOnline.sln, navigating to the Build menu, selecting Build Solution, and ensuring no errors occur during the build process. Next, open Task Runner Explorer by selecting View > Other Windows > Task Runner Explorer from the Visual Studio menu. Then, open the integrated terminal in Visual Studio by pressing “Ctrl + ~”, navigate to the project directory using the command:
+```powershell
+cd C:\Git\GenericComputationPlatform\GenericComputationPlatform
+```
+Press Enter to switch to the project directory and install dependencies by running:
+```powershell
+npm ci
+```
+This command installs all project dependencies based on package-lock.json. Refresh Task Runner Explorer by clicking the refresh button to ensure updated tasks are visible. Then, execute the build tasks sequentially in Task Runner Explorer by double-clicking Build 1, Build 2, and Build 3, waiting for each to complete before proceeding to the next.
+Next, set “DockingApiService” as the startup project by right-clicking it in Solution Explorer, selecting “Set as StartUp Project”, and launching it in non-debug mode by navigating to “Debug > Start Without Debugging”, which starts the backend service. Similarly, set “GenericComputationPlatform” as the startup project by right-clicking it in Solution Explorer, selecting “Set as StartUp Project”, and launching it in non-debug mode via “Debug > Start Without Debugging”, which starts the frontend application.
+Timing 5 min- 10 min
 If you need the package, please download the latest release from the [Releases](https://github.com/CGKBAI/CGKB-AI/releases) page.
 
 For data-privacy reasons, the protein sequences are **not** included in this repository.  
