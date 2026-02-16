@@ -1,3 +1,5 @@
+For questions or collaboration, feel free to contact
+Huo Tingjun: tingjunhou@zju.edu.cn; Feng Zhiwei: fengzhiwei@suat-sz.edu.cn.
 Procedure
 =====
 To power up the platform you’ll need to configure the runtime stack below. Follow the steps once and you’re ready to serve from your own machine.
